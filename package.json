@@ -1,0 +1,37 @@
+{
+  "name": "portable",
+  "version": "1.0.0",
+  "description": "Nopow-Link's js librairy for portable plugin",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "NODE_ENV=development webpack --stats-children",
+    "webpack-build": "NODE_ENV=production webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/Nopow-Link/portable.git"
+  },
+  "keywords": [
+    "nopow-link",
+    "npl"
+  ],
+  "author": "Nopow-Link",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/Nopow-Link/portable/issues"
+  },
+  "homepage": "https://bitbucket.org/Nopow-Link/portable#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.4",
+    "source-map-loader": "^3.0.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "jquery": "^3.6.0",
+    "strftime": "^0.10.1"
+  }
+}
