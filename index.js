@@ -10,7 +10,7 @@ window.jQuery   = $
 Axios.defaults.headers = {'X-Requested-With': 'XMLHttpRequest'}
 
 // Librairy entrypoint
-import NPL from './main.js'
+import NPL from './srcs/npl.js'
 
-export { JQuery, Axios, NPL }
+export { JQuery, Axios, NPL, $ }
 

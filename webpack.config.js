@@ -40,6 +40,20 @@ let core = Object.assign({}, webpack_config, {
 	devtool : "source-map"
 })
 
+let test = Object.assign({}, webpack_config, {
+	entry	: {
+		main	: path.resolve("./test/main.js"),
+	},
+	output	: {
+		path			: path.resolve("./dist/test"),
+		filename		: "[name].js",
+		sourceMapFilename	: "[name][ext].map",
+		libraryTarget		: "umd",
+	},
+	devtool : "source-map"
+})
+
 module.exports = [
 	core,
+	test,
 ]

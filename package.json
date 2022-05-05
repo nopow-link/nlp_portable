@@ -24,6 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
+    "@testing-library/dom": "^8.13.0",
     "babel-loader": "^8.2.4",
     "source-map-loader": "^3.0.1",
     "webpack": "^5.72.0",
