@@ -1,5 +1,6 @@
 import JQuery from 'jquery'
 import Axios from 'axios'
+import trim from "trim"
 
 // Load JQuery globaly
 const strftime  = require('strftime')

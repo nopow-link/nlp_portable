@@ -4,7 +4,7 @@ let NPL = {
         const CURRENT_URL = $(location).attr('href')
         const SLUG        = window.location.pathname
 
-        var pk = api_key.trim()
+        var pk = trim(api_key)
 
         console.log(SLUG)
         console.log(CURRENT_URL)
