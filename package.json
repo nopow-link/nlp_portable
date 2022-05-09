@@ -32,7 +32,9 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "core-js": "^3.22.4",
     "jquery": "^3.6.0",
+    "regex": "^0.1.1",
     "strftime": "^0.10.1",
     "trim": "^1.0.1"
   }

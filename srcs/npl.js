@@ -1,23 +1,40 @@
 let NPL = {
 
-    run(api_key) {
-        const CURRENT_URL = $(location).attr('href')
-        const SLUG        = window.location.pathname
+    run() {
 
-        var pk = trim(api_key)
+        var api_key = nl_plugin.getAttribute('api_key')
+        api_key     = trim(api_key)
+        console.log(api_key)
 
-        console.log(SLUG)
-        console.log(CURRENT_URL)
-        console.log(Axios)
+        var url = "http://127.0.0.1:8000/api/public/plugin/" + api_key + "/collect/?slug=/la-navigation-privee-rend-elle-vraiment-incognito/"
+        console.log(url)
+
+        // var response = [this.get_Data(url)]
+
+        var demo_response = [
+            {
+                "pk": 4,
+                "source": "<p>Pour la seconde édition de l’appel à l’action du Christchurch créé suite aux attentats du 15 mars 2019 contre la communauté musulmane de Christchurch en Nouvelle Zélande, Jean-Claude Ghinozzi, CEO de Qwant, a pu porter, vendredi 14 mai, en présence de 15 chefs d'état, la parole de Qwant.</p>",
+                "occurence": 268,
+                "substitute": "<p>Pour la seconde <a href=\"https://ugc.com/\" rel=\"sponsored\">édition </a>de l'appel à l'action du Christchurch créé suite aux attentats du 15 mars 2019 contre la communauté musulmane de Christchurch en Nouvelle Zélande, Jean-Claude Ghinozzi, CEO de Qwant, a pu porter, vendredi 14 mai, en présence de 15 chefs d'état, la parole de Qwant</p>.",
+                "hash15": "<md5 HASH object @ 0x7f94c05acbc0>"
+            }
+        ]
+        
+        console.log(demo_response[0].substitute)
+
+        var old         = document.getElementById("nl")
+        console.log(old)
+        var substitute  = demo_response[0].substitute
+        substitute.slice(3, -4)
+        console.log(substitute.slice(3, -4))
+
+        old.replaceWith(substitute.slice(3, -5))
     },
 
-    get_Data() {
-        axios.get('/api/public/plugin/2b18fd7065f98e0ff6f46789b61a8ab46fb14bdb91dd99dcb8ac2b229d0bdb51/collect/?slug=/this/is/an/example?test=True')
-            .then(response => response.data)
-            console.log(response.data)
-            if (response.data.certify == false) {
-                certify()
-            }
+    get_Data(url) {
+
+        return Axios.get(url)
     },
 
     certify() {
@@ -28,6 +45,11 @@ let NPL = {
 }
 
 export default NPL
+
+
+
+// const CURRENT_URL = $(location).attr('href')
+        // const SLUG        = window.location.pathname
 
 
 
