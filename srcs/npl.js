@@ -16,7 +16,7 @@ let NPL = {
                 "pk": 4,
                 "source": "<p>Pour la seconde édition de l’appel à l’action du Christchurch créé suite aux attentats du 15 mars 2019 contre la communauté musulmane de Christchurch en Nouvelle Zélande, Jean-Claude Ghinozzi, CEO de Qwant, a pu porter, vendredi 14 mai, en présence de 15 chefs d'état, la parole de Qwant.</p>",
                 "occurence": 268,
-                "substitute": "<p>Pour la seconde <a href=\"https://ugc.com/\" rel=\"sponsored\">édition </a>de l'appel à l'action du Christchurch créé suite aux attentats du 15 mars 2019 contre la communauté musulmane de Christchurch en Nouvelle Zélande, Jean-Claude Ghinozzi, CEO de Qwant, a pu porter, vendredi 14 mai, en présence de 15 chefs d'état, la parole de Qwant</p>.",
+                "substitute": "<p>Pour la seconde <a href=\"https://ugc.com/\" rel=\"sponsored\">édition </a>de l'appel à l'action du Christchurch créé suite aux attentats du 15 mars 2019 contre la communauté musulmane de Christchurch en Nouvelle Zélande, Jean-Claude Ghinozzi, CEO de Qwant, a pu porter, vendredi 14 mai, en présence de 15 chefs d'état, la parole de Qwant.</p>",
                 "hash15": "<md5 HASH object @ 0x7f94c05acbc0>"
             }
         ]
@@ -24,12 +24,10 @@ let NPL = {
         console.log(demo_response[0].substitute)
 
         var old         = document.getElementById("nl")
+        old.innerHTML = "";
         console.log(old)
         var substitute  = demo_response[0].substitute
-        substitute.slice(3, -4)
-        console.log(substitute.slice(3, -4))
-
-        old.replaceWith(substitute.slice(3, -5))
+        old.innerHTML = substitute
     },
 
     get_Data(url) {
