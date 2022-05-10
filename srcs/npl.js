@@ -20,14 +20,34 @@ let NPL = {
                 "hash15": "<md5 HASH object @ 0x7f94c05acbc0>"
             }
         ]
-        
-        console.log(demo_response[0].substitute)
+
+        var source      = demo_response[0].source
+        console.log(source)
 
         var old         = document.getElementById("nl")
-        old.innerHTML = "";
-        console.log(old)
+        // old.innerHTML   = "";
         var substitute  = demo_response[0].substitute
-        old.innerHTML = substitute
+        // old.innerHTML   = substitute
+
+
+
+        var elements    = document.querySelectorAll('p')
+        console.log(elements)
+    
+        for (var key in elements) {
+            console.log(elements[key].outerHTML) 
+            var search = elements[key].outerHTML.search(source)
+            console.log(search)
+            if (search == 0) {
+                console.log("this one")
+                elements[key].outerHTML = substitute
+                console.log(elements[key])
+            }
+        }
+
+
+
+
     },
 
     get_Data(url) {
