@@ -4,10 +4,7 @@ let NPL = {
 
         var api_key = nl_plugin.getAttribute('api_key')
         api_key     = trim(api_key)
-        console.log(api_key)
-
         var url = "http://127.0.0.1:8000/api/public/plugin/" + api_key + "/collect/?slug=/la-navigation-privee-rend-elle-vraiment-incognito/"
-        console.log(url)
 
         // var response = [this.get_Data(url)]
 
@@ -15,37 +12,63 @@ let NPL = {
             {
                 "pk": 4,
                 "source": "<p>Pour la seconde édition de l’appel à l’action du Christchurch créé suite aux attentats du 15 mars 2019 contre la communauté musulmane de Christchurch en Nouvelle Zélande, Jean-Claude Ghinozzi, CEO de Qwant, a pu porter, vendredi 14 mai, en présence de 15 chefs d'état, la parole de Qwant.</p>",
-                "occurence": 268,
+                "occurence": 8745,
                 "substitute": "<p>Pour la seconde <a href=\"https://ugc.com/\" rel=\"sponsored\">édition </a>de l'appel à l'action du Christchurch créé suite aux attentats du 15 mars 2019 contre la communauté musulmane de Christchurch en Nouvelle Zélande, Jean-Claude Ghinozzi, CEO de Qwant, a pu porter, vendredi 14 mai, en présence de 15 chefs d'état, la parole de Qwant.</p>",
                 "hash15": "<md5 HASH object @ 0x7f94c05acbc0>"
             }
         ]
 
-        var source      = demo_response[0].source
-        console.log(source)
+        var source          = demo_response[0].source
+        var html            = document.documentElement.outerHTML
+        var occurence       = demo_response[0].occurence
+        var substitute      = demo_response[0].substitute
+        var elements        = document.querySelectorAll('p')
+        var index           = []
+        var index_bool      = []
+        var bool            = -1
+        var closest         = Number.MAX_SAFE_INTEGER
+        console.log(closest)
+        // ranger les index dans un tableau 
+        // closest = max_int 
+        // comparables (indexoff => occurence ):
+        // if compare < closest :
+        // closest.id = true
 
-        var old         = document.getElementById("nl")
-        // old.innerHTML   = "";
-        var substitute  = demo_response[0].substitute
-        // old.innerHTML   = substitute
+        var indexes = html.indexOf(source)
+        index.push(indexes)
+        while (indexes != -1) {
+            indexes = html.indexOf(source, indexes + 4)
+            console.log(indexes)
+            index.push(indexes)
+        }
+        index.splice(-1, 1)
+        console.log(index)
 
-
-
-        var elements    = document.querySelectorAll('p')
-        console.log(elements)
+        for (var id in index ) {
+            var compare = Math.abs(occurence - index[id])
+            console.log(compare)
+            if (compare < closest) {
+                closest = compare
+                index_bool.push(true)
+                if (bool >= 0) {
+                    index_bool[bool] = false
+                } 
+                bool = id
+            } else {
+                index_bool.push(false)
+            }
+            console.log("closest " + closest)
+            console.log("compare " + compare)
+            console.log(index_bool)
+        }
     
         for (var key in elements) {
-            console.log(elements[key].outerHTML) 
             var search = elements[key].outerHTML.search(source)
-            console.log(search)
             if (search == 0) {
                 console.log("this one")
-                elements[key].outerHTML = substitute
-                console.log(elements[key])
+               
             }
         }
-
-
 
 
     },
