@@ -12,7 +12,7 @@ let NPL = {
             {
                 "pk": 4,
                 "source": "<p>Pour la seconde édition de l’appel à l’action du Christchurch créé suite aux attentats du 15 mars 2019 contre la communauté musulmane de Christchurch en Nouvelle Zélande, Jean-Claude Ghinozzi, CEO de Qwant, a pu porter, vendredi 14 mai, en présence de 15 chefs d'état, la parole de Qwant.</p>",
-                "occurence": 8745,
+                "occurence": 11000,
                 "substitute": "<p>Pour la seconde <a href=\"https://ugc.com/\" rel=\"sponsored\">édition </a>de l'appel à l'action du Christchurch créé suite aux attentats du 15 mars 2019 contre la communauté musulmane de Christchurch en Nouvelle Zélande, Jean-Claude Ghinozzi, CEO de Qwant, a pu porter, vendredi 14 mai, en présence de 15 chefs d'état, la parole de Qwant.</p>",
                 "hash15": "<md5 HASH object @ 0x7f94c05acbc0>"
             }
@@ -38,15 +38,12 @@ let NPL = {
         index.push(indexes)
         while (indexes != -1) {
             indexes = html.indexOf(source, indexes + 4)
-            console.log(indexes)
             index.push(indexes)
         }
         index.splice(-1, 1)
-        console.log(index)
 
         for (var id in index ) {
             var compare = Math.abs(occurence - index[id])
-            console.log(compare)
             if (compare < closest) {
                 closest = compare
                 index_bool.push(true)
@@ -57,16 +54,19 @@ let NPL = {
             } else {
                 index_bool.push(false)
             }
-            console.log("closest " + closest)
-            console.log("compare " + compare)
-            console.log(index_bool)
         }
     
+        var id = -1
+
         for (var key in elements) {
             var search = elements[key].outerHTML.search(source)
             if (search == 0) {
                 console.log("this one")
-               
+                console.log(elements[key])
+                id += 1
+                if (index_bool[id] == true) {
+                    elements[key].outerHTML = substitute
+                }
             }
         }
 
