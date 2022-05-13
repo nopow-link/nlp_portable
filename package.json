@@ -1,5 +1,5 @@
 {
-  "name": "portable",
+  "name": "@nopow_link/portable",
   "version": "0.0.0",
   "description": "Nopow-Link's js librairy for portable plugin",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/Nopow-Link/portable.git"
+    "url": "git+https://github.com/nopow-link/nlp_portable.git"
   },
   "keywords": [
     "nopow-link",
@@ -18,9 +18,9 @@
   "author": "Nopow-Link",
   "license": "ISC",
   "bugs": {
-    "url": "https://bitbucket.org/Nopow-Link/portable/issues"
+    "url": " https://github.com/nopow-link/nlp_portable/issues"
   },
-  "homepage": "https://bitbucket.org/Nopow-Link/portable#readme",
+  "homepage": " https://github.com/nopow-link/nlp_portable#readme",
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
@@ -32,10 +32,10 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
-    "core-js": "^3.22.4",
-    "jquery": "^3.6.0",
-    "regex": "^0.1.1",
-    "strftime": "^0.10.1",
+    "core-js": "^3.22.5",
     "trim": "^1.0.1"
+  },
+  "directories": {
+    "test": "test"
   }
 }
