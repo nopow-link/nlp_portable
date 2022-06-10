@@ -3,7 +3,7 @@ let NPL = {
     run() {
     
         const DEBUG     = true
-        const PROTOCOLE = "http://"
+        const PROTOCOLE = "https://"
         const HOST      = "www.nopow-link.com"
         const API_KEY   = trim(nl_plugin.getAttribute('API_KEY')) 
         const SLUG      = window.location.pathname
